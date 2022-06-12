@@ -49,12 +49,11 @@ trait HasPermissionsTrait{
 		return $this;
 	}
 
-
 	public function permissions(){
-		return $this->belongsToMany(Permission::class,'user_permissions','user_id');
+		return $this->belongsToMany(Permission::class,'admin_permissions','admin_id');
 	}
 
 	public function roles(){
-		return $this->belongsToMany(Role::class,'user_roles','user_id');
+		return $this->belongsToMany(Role::class,'admin_roles','admin_id');
 	}
 }

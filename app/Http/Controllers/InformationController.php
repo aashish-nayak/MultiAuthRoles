@@ -19,8 +19,9 @@ class InformationController extends Controller
         // $permission = Permission::first();
         // $user->permissions()->attach($permission->id);
         // $user->hasPermission('add-info');
+
         // STOP WORKING Can Not Working
-        dd($user->can('add-info'));
+        // dd($user->can('read-info'));
         $data = Information::latest()->get();
         return view('admin.info-index',compact('data'));
     }

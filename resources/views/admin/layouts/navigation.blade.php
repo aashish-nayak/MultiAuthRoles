@@ -16,9 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @permission('read-info')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.info.show')" :active="request()->routeIs('admin.info.show')">
                         {{ __('Informations') }}
+                    </x-nav-link>
+                </div>
+                @endpermission
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.role.show')" :active="request()->routeIs('admin.role.show')">
+                        {{ __('Role') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.permission.show')" :active="request()->routeIs('admin.permission.show')">
+                        {{ __('Permission') }}
                     </x-nav-link>
                 </div>
             </div>
