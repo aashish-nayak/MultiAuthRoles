@@ -23,6 +23,7 @@
                     </x-nav-link>
                 </div>
                 @endpermission
+                @role('admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.role.show')" :active="request()->routeIs('admin.role.show')">
                         {{ __('Role') }}
@@ -33,6 +34,7 @@
                         {{ __('Permission') }}
                     </x-nav-link>
                 </div>
+                @endrole
             </div>
 
             <!-- Settings Dropdown -->
