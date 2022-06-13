@@ -34,14 +34,14 @@ Route::prefix('/admin')->name('admin.')->middleware(['admin'])->group(function()
         Route::get('/edit/{id}',[InformationController::class,'edit'])->middleware('permission:update-info')->name('edit');
         Route::get('/delete/{id}',[InformationController::class,'destroy'])->middleware('permission:delete-info')->name('delete');
     });
-    Route::prefix('/role')->name('role.')->group(function(){
+    Route::prefix('/role')->name('role.')->middleware(['role:admin'])->group(function(){
         Route::get('/show',[RoleController::class,'index'])->name('show');
         Route::get('/create',[RoleController::class,'create'])->name('add');
         Route::post('/store',[RoleController::class,'store'])->name('store');
         Route::get('/edit/{id}',[RoleController::class,'edit'])->name('edit');
         Route::get('/delete{id}',[RoleController::class,'destroy'])->name('delete');
     });
-    Route::prefix('/permission')->name('permission.')->group(function(){
+    Route::prefix('/permission')->name('permission.')->middleware(['role:admin'])->group(function(){
         Route::get('/show',[PermissionController::class,'index'])->name('show');
         Route::get('/create',[PermissionController::class,'create'])->name('add');
         Route::post('/store',[PermissionController::class,'store'])->name('store');
